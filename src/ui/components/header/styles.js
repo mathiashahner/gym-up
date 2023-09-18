@@ -22,10 +22,14 @@ const styles = StyleSheet.create({
     color: '#F0F2F6',
   },
   headerProfile: {
-    backgroundColor: '#F0F2F6',
+    borderWidth: 3,
+    borderColor: '#F0F2F6',
     width: 50,
     height: 50,
     borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    overflow: 'hidden',
   },
 })
 

@@ -1,3 +1,8 @@
+import { Text } from 'react-native'
+import { useGlobalUser } from '../../hooks'
+
 export const HomeScreen = () => {
-  return <></>
+  const [user] = useGlobalUser()
+
+  return <Text>{user.name}</Text>
 }
