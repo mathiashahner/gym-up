@@ -12,7 +12,7 @@ export const Header = () => {
   }
 
   return (
-    <>
+    <View style={styles.body}>
       <View style={styles.header}>
         <View style={styles.container}>
           <Text style={styles.headerTitle}>Olá, {user?.name}!</Text>
@@ -22,6 +22,6 @@ export const Header = () => {
           </Pressable>
         </View>
       </View>
-    </>
+    </View>
   )
 }

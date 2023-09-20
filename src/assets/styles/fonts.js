@@ -1,8 +1,9 @@
 const fonts = {
   size: {
-    small: 12,
-    regular: 16,
-    large: 22,
+    small: 10,
+    regular: 14,
+    large: 18,
+    veryLarge: 22,
   },
   family: {
     regular: 'Montserrat_400Regular',

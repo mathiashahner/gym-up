@@ -1,1 +1,6 @@
+export { EditIcon } from './edit'
+export { ClockIcon } from './clock'
+export { FlameIcon } from './flame'
 export { ProfileIcon } from './profile'
+export { CalendarIcon } from './calendar'
+export { DumbbellIcon } from './dumbbell'
