@@ -3,7 +3,7 @@ import { colors, fonts } from '../../../assets/styles'
 
 const styles = StyleSheet.create({
   record: {
-    gap: 5,
+    gap: 4,
     width: '50%',
     flexDirection: 'row',
     alignItems: 'center',

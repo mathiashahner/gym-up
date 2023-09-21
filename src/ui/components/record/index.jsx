@@ -2,10 +2,10 @@ import styles from './styles'
 
 import { Text, View } from 'react-native'
 
-export const Record = ({ title, value, children }) => {
+export const Record = ({ title, value, icon }) => {
   return (
     <View style={styles.record}>
-      {children}
+      {icon}
 
       <View>
         <Text style={styles.recordTitle}>{title}</Text>

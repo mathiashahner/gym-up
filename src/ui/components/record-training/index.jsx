@@ -2,16 +2,43 @@ import styles from './styles'
 
 import { Button } from '../button'
 import { Record } from '../record'
-import { CalendarIcon, ClockIcon, DumbbellIcon, EditIcon, FlameIcon } from '../../../assets/icons'
+import { useEffect, useState } from 'react'
+import { useGlobalUser } from '../../../hooks'
 import { Pressable, Text, View } from 'react-native'
+import { getFormattedDate, getFormattedTime, getNextTraining } from '../../../core'
+import { CalendarIcon, ClockIcon, DumbbellIcon, EditIcon, FlameIcon } from '../../../assets/icons'
+
+const initialValues = {
+  dateTime: new Date(),
+  training: 'A',
+  trainingCount: 0,
+}
 
 export const RecordTraining = () => {
+  const [user, setUser] = useGlobalUser()
+  const [records, setRecords] = useState(initialValues)
+
+  useEffect(() => {
+    if (user?.trainings) {
+      setRecords({
+        ...records,
+        trainingCount: user.trainingCount + 1,
+        training: getNextTraining(user.trainings, user.lastTraining),
+      })
+    }
+  }, [user])
+
   const onPressEdit = () => {
     console.log('Edit')
   }
 
   const onPressRegister = () => {
-    console.log('Register')
+    setUser({
+      ...user,
+      lastTraining: records.training,
+      trainingCount: records.trainingCount,
+      trainingRecords: [...user.trainingRecords, records],
+    })
   }
 
   return (
@@ -26,20 +53,13 @@ export const RecordTraining = () => {
 
       <View style={styles.records}>
         <View style={styles.recordRow}>
-          <Record title={'Data'} value={'08/09/2023'}>
-            <CalendarIcon />
-          </Record>
-          <Record title={'Horário'} value={'19:30'}>
-            <ClockIcon />
-          </Record>
+          <Record title={'Data'} value={getFormattedDate(records.dateTime)} icon={<CalendarIcon />} />
+          <Record title={'Horário'} value={getFormattedTime(records.dateTime)} icon={<ClockIcon />} />
         </View>
+
         <View style={styles.recordRow}>
-          <Record title={'Treino'} value={'A'}>
-            <DumbbellIcon />
-          </Record>
-          <Record title={'Número de treinos'} value={'143'}>
-            <FlameIcon />
-          </Record>
+          <Record title={'Treino'} value={records.training} icon={<DumbbellIcon />} />
+          <Record title={'Número de treinos'} value={records.trainingCount} icon={<FlameIcon />} />
         </View>
       </View>
 
