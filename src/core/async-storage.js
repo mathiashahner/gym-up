@@ -7,7 +7,7 @@ const initialData = {
   height: 153,
   weight: 53.3,
   birthDate: '2001-01-23',
-  image: 'https://avatars.githubusercontent.com/u/18379191?v=4',
+  image: 'https://avatars.githubusercontent.com/u/61355223?v=4',
   trainings: ['A', 'B', 'C'],
   lastTraining: 'A',
   trainingCount: 145,

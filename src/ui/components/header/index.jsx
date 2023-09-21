@@ -2,7 +2,7 @@ import styles from './styles'
 
 import { useGlobalUser } from '../../../hooks'
 import { ProfileIcon } from '../../../assets/icons'
-import { Pressable, Text, View } from 'react-native'
+import { Image, Pressable, Text, View } from 'react-native'
 
 export const Header = () => {
   const [user] = useGlobalUser()
@@ -18,7 +18,11 @@ export const Header = () => {
           <Text style={styles.headerTitle}>Olá, {user?.name}!</Text>
 
           <Pressable style={styles.headerProfile} onPress={onPressProfile}>
-            <ProfileIcon />
+            {user?.image ? (
+              <Image style={styles.headerProfileImage} source={{ uri: user.image }} />
+            ) : (
+              <ProfileIcon />
+            )}
           </Pressable>
         </View>
       </View>
