@@ -52,15 +52,10 @@ export const RecordTraining = () => {
       </View>
 
       <View style={styles.records}>
-        <View style={styles.recordRow}>
-          <Record title={'Data'} value={getFormattedDate(records.dateTime)} icon={<CalendarIcon />} />
-          <Record title={'Horário'} value={getFormattedTime(records.dateTime)} icon={<ClockIcon />} />
-        </View>
-
-        <View style={styles.recordRow}>
-          <Record title={'Treino'} value={records.training} icon={<DumbbellIcon />} />
-          <Record title={'Número de treinos'} value={records.trainingCount} icon={<FlameIcon />} />
-        </View>
+        <Record title={'Data'} value={getFormattedDate(records.dateTime)} icon={<CalendarIcon />} />
+        <Record title={'Horário'} value={getFormattedTime(records.dateTime)} icon={<ClockIcon />} />
+        <Record title={'Treino'} value={records.training} icon={<DumbbellIcon />} />
+        <Record title={'Número de treinos'} value={records.trainingCount} icon={<FlameIcon />} />
       </View>
 
       <Button title={'Registrar'} onPress={onPressRegister} />

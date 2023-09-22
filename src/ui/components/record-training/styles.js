@@ -21,11 +21,11 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   records: {
-    paddingBottom: 10,
-  },
-  recordRow: {
+    rowGap: 20,
     padding: 10,
+    paddingBottom: 20,
     flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 })
 
