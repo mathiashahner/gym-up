@@ -16,6 +16,7 @@ const initialValues = {
 
 export const RecordTraining = () => {
   const [user, setUser] = useGlobalUser()
+  const [handleEdit, setHandleEdit] = useState(false)
   const [records, setRecords] = useState(initialValues)
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export const RecordTraining = () => {
   }, [user])
 
   const onPressEdit = () => {
-    console.log('Edit')
+    setHandleEdit(!handleEdit)
   }
 
   const onPressRegister = () => {

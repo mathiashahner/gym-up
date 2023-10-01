@@ -4,15 +4,20 @@ import { useEffect } from 'react'
 import { Text, View } from 'react-native'
 import Animated, { useSharedValue, useAnimatedStyle, withRepeat, withTiming } from 'react-native-reanimated'
 
-export const Record = ({ title, value, icon }) => {
-  const sharedValue = useSharedValue(-1.5)
+const duration = 200
+const initialOffset = 5
+
+export const Record = ({ title, value, icon, hasAnimation = false }) => {
+  const offset = useSharedValue(initialOffset)
 
   useEffect(() => {
-    sharedValue.value = withRepeat(withTiming(1), -1, true)
-  }, [])
+    if (hasAnimation) {
+      offset.value = withRepeat(withTiming(1, { duration }), -1, true)
+    }
+  }, [hasAnimation])
 
   const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ rotate: `${sharedValue.value * 1.5}deg` }],
+    transform: [{ translateX: offset.value }],
   }))
 
   return (
